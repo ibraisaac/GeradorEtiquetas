@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorEtiquetasNew", "GeradorEtiquetasNew.csproj", "{3F9E0A7F-9BB6-4F03-8717-E0D59EBAAAAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F9E0A7F-9BB6-4F03-8717-E0D59EBAAAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9E0A7F-9BB6-4F03-8717-E0D59EBAAAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9E0A7F-9BB6-4F03-8717-E0D59EBAAAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9E0A7F-9BB6-4F03-8717-E0D59EBAAAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C7874EF-BB9F-48F1-8B5E-3FB76CA9AEA4}
+	EndGlobalSection
+EndGlobal
