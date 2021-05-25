@@ -22,11 +22,6 @@ namespace GeradorEtiquetas
             Stimulsoft.Base.StiLicense.Key = chave;
         }
 
-        private void btnGerarEtiqueta_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             var report = new StiReport();
@@ -58,7 +53,7 @@ namespace GeradorEtiquetas
 
                 report.RegData(dstDados);
 
-                report.Load("Report.mrt");
+                report.Load("Etiqueta.mrt");
 
                 report.Show();
 

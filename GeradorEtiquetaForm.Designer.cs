@@ -29,6 +29,7 @@ namespace GeradorEtiquetas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtRua = new System.Windows.Forms.TextBox();
@@ -44,15 +45,18 @@ namespace GeradorEtiquetas
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
-            this.btnGerarEtiqueta = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridItens = new System.Windows.Forms.DataGridView();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVisualizar = new System.Windows.Forms.Button();
+            this.bscGrid = new System.Windows.Forms.BindingSource(this.components);
+            this.dados = new GeradorEtiquetasNew.Dados();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dados)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNome
@@ -179,16 +183,6 @@ namespace GeradorEtiquetas
             this.txtNumero.Size = new System.Drawing.Size(53, 20);
             this.txtNumero.TabIndex = 4;
             // 
-            // btnGerarEtiqueta
-            // 
-            this.btnGerarEtiqueta.Location = new System.Drawing.Point(447, 104);
-            this.btnGerarEtiqueta.Name = "btnGerarEtiqueta";
-            this.btnGerarEtiqueta.Size = new System.Drawing.Size(63, 50);
-            this.btnGerarEtiqueta.TabIndex = 9;
-            this.btnGerarEtiqueta.Text = "Exportar";
-            this.btnGerarEtiqueta.UseVisualStyleBackColor = true;
-            this.btnGerarEtiqueta.Click += new System.EventHandler(this.btnGerarEtiqueta_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -208,7 +202,7 @@ namespace GeradorEtiquetas
             this.dataGridItens.Location = new System.Drawing.Point(10, 160);
             this.dataGridItens.Name = "dataGridItens";
             this.dataGridItens.RowTemplate.Height = 25;
-            this.dataGridItens.Size = new System.Drawing.Size(542, 140);
+            this.dataGridItens.Size = new System.Drawing.Size(534, 140);
             this.dataGridItens.TabIndex = 11;
             // 
             // Produto
@@ -232,23 +226,32 @@ namespace GeradorEtiquetas
             // 
             // btnVisualizar
             // 
-            this.btnVisualizar.Location = new System.Drawing.Point(376, 104);
+            this.btnVisualizar.Image = global::GeradorEtiquetasNew.Properties.Resources.ficheiro_pdf;
+            this.btnVisualizar.Location = new System.Drawing.Point(376, 69);
             this.btnVisualizar.Name = "btnVisualizar";
-            this.btnVisualizar.Size = new System.Drawing.Size(65, 50);
+            this.btnVisualizar.Size = new System.Drawing.Size(82, 75);
             this.btnVisualizar.TabIndex = 12;
-            this.btnVisualizar.Text = "Visualizar";
             this.btnVisualizar.UseVisualStyleBackColor = true;
             this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
+            // 
+            // bscGrid
+            // 
+            this.bscGrid.DataMember = "Item";
+            this.bscGrid.DataSource = this.dados;
+            // 
+            // dados
+            // 
+            this.dados.DataSetName = "Dados";
+            this.dados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // GeradorEtiquetaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 308);
+            this.ClientSize = new System.Drawing.Size(549, 306);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.dataGridItens);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnGerarEtiqueta);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -259,6 +262,8 @@ namespace GeradorEtiquetas
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bscGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +279,6 @@ namespace GeradorEtiquetas
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtNumero;
-        private System.Windows.Forms.Button btnGerarEtiqueta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridItens;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
@@ -287,6 +291,8 @@ namespace GeradorEtiquetas
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnVisualizar;
+        private System.Windows.Forms.BindingSource bscGrid;
+        private GeradorEtiquetasNew.Dados dados;
     }
 }
 
