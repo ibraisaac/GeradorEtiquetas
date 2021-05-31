@@ -30,7 +30,7 @@ namespace GeradorEtiquetas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtRua = new System.Windows.Forms.TextBox();
             this.txtCEP = new System.Windows.Forms.TextBox();
@@ -50,9 +50,15 @@ namespace GeradorEtiquetas
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVisualizar = new System.Windows.Forms.Button();
             this.bscGrid = new System.Windows.Forms.BindingSource(this.components);
             this.dados = new GeradorEtiquetasNew.Dados();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnVisualizar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnCaminho = new System.Windows.Forms.Button();
+            this.txtCaminho = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bscGrid)).BeginInit();
@@ -79,6 +85,7 @@ namespace GeradorEtiquetas
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(80, 20);
             this.txtCEP.TabIndex = 2;
+            this.txtCEP.Validated += new System.EventHandler(this.txtCEP_Validated);
             // 
             // groupBox1
             // 
@@ -199,7 +206,7 @@ namespace GeradorEtiquetas
             this.Produto,
             this.Quantidade,
             this.Valor});
-            this.dataGridItens.Location = new System.Drawing.Point(10, 160);
+            this.dataGridItens.Location = new System.Drawing.Point(10, 199);
             this.dataGridItens.Name = "dataGridItens";
             this.dataGridItens.RowTemplate.Height = 25;
             this.dataGridItens.Size = new System.Drawing.Size(534, 140);
@@ -219,20 +226,10 @@ namespace GeradorEtiquetas
             // 
             // Valor
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle1;
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
-            // 
-            // btnVisualizar
-            // 
-            this.btnVisualizar.Image = global::GeradorEtiquetasNew.Properties.Resources.ficheiro_pdf;
-            this.btnVisualizar.Location = new System.Drawing.Point(376, 69);
-            this.btnVisualizar.Name = "btnVisualizar";
-            this.btnVisualizar.Size = new System.Drawing.Size(82, 75);
-            this.btnVisualizar.TabIndex = 12;
-            this.btnVisualizar.UseVisualStyleBackColor = true;
-            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
             // bscGrid
             // 
@@ -244,11 +241,84 @@ namespace GeradorEtiquetas
             this.dados.DataSetName = "Dados";
             this.dados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(378, 58);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(159, 34);
+            this.btnExportar.TabIndex = 14;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(378, 136);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(159, 34);
+            this.btnLimpar.TabIndex = 13;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnVisualizar
+            // 
+            this.btnVisualizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnVisualizar.Location = new System.Drawing.Point(378, 18);
+            this.btnVisualizar.Name = "btnVisualizar";
+            this.btnVisualizar.Size = new System.Drawing.Size(159, 34);
+            this.btnVisualizar.TabIndex = 12;
+            this.btnVisualizar.Text = "Visualizar";
+            this.btnVisualizar.UseVisualStyleBackColor = false;
+            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Caminho";
+            // 
+            // btnCaminho
+            // 
+            this.btnCaminho.Location = new System.Drawing.Point(378, 173);
+            this.btnCaminho.Name = "btnCaminho";
+            this.btnCaminho.Size = new System.Drawing.Size(32, 20);
+            this.btnCaminho.TabIndex = 22;
+            this.btnCaminho.Text = "...";
+            this.btnCaminho.UseVisualStyleBackColor = true;
+            this.btnCaminho.Click += new System.EventHandler(this.btnCaminho_Click);
+            // 
+            // txtCaminho
+            // 
+            this.txtCaminho.Location = new System.Drawing.Point(12, 173);
+            this.txtCaminho.Name = "txtCaminho";
+            this.txtCaminho.Size = new System.Drawing.Size(360, 20);
+            this.txtCaminho.TabIndex = 21;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(378, 98);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(159, 34);
+            this.btnEditar.TabIndex = 23;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // GeradorEtiquetaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 306);
+            this.ClientSize = new System.Drawing.Size(549, 351);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnCaminho);
+            this.Controls.Add(this.txtCaminho);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.dataGridItens);
             this.Controls.Add(this.label1);
@@ -293,6 +363,12 @@ namespace GeradorEtiquetas
         private System.Windows.Forms.Button btnVisualizar;
         private System.Windows.Forms.BindingSource bscGrid;
         private GeradorEtiquetasNew.Dados dados;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCaminho;
+        private System.Windows.Forms.TextBox txtCaminho;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
 
